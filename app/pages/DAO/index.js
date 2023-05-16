@@ -19,7 +19,7 @@ export default function DAO(){
   const [numProposals, setNumProposals] = useState("0");
   // Array of all proposals created in the DAO
   const [proposals, setProposals] = useState([]);
-  // User's balance of CryptoDevs NFTs
+  // User's balance of Voting Pass NFTs
   const [nftBalance, setNftBalance] = useState(0);
   // Fake NFT Token ID to purchase. Used when creating a proposal.
   const [votingProposal, setVotingProposal] = useState("");
@@ -108,11 +108,11 @@ export default function DAO(){
     }
   };
 
-  // Reads the balance of the user's CryptoDevs NFTs and sets the `nftBalance` state variable
+  // Reads the balance of the user's Block The Vote NFTs and sets the `nftBalance` state variable
   const getUserNFTBalance = async () => {
     try {
       const signer = await getProviderOrSigner(true);
-      const nftContract = getCryptodevsNFTContractInstance(signer);
+      const nftContract = getVotersNFTContractInstance(signer);
       const balance = await nftContract.balanceOf(signer.getAddress());
       setNftBalance(parseInt(balance.toString()));
     } catch (error) {
@@ -247,9 +247,9 @@ export default function DAO(){
     );
   };
 
-  // Helper function to return a CryptoDevs NFT Contract instance
+  // Helper function to return a Voting Pass NFT Contract instance
   // given a Provider/Signer
-  const getCryptodevsNFTContractInstance = (providerOrSigner) => {
+  const getVotersNFTContractInstance = (providerOrSigner) => {
     return new Contract(
       NFT_CONTRACT_ADDRESS,
       abi_NFT,
@@ -309,14 +309,14 @@ export default function DAO(){
     } else if (nftBalance === 0) {
       return (
         <div className={styles.description}>
-          You do not own any CryptoDevs NFTs. <br />
+          You do not own any Voting Pass NFTs. <br />
           <b>You cannot create or vote on proposals</b>
         </div>
       );
     } else {
       return (
         <div className={styles.container}>
-          <label>Fake NFT Token ID to Purchase: </label>
+          <label>Proposal to vote on </label>
           <textarea
             
             type="text"
@@ -438,7 +438,7 @@ export default function DAO(){
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
+        Made with &#10084; by Matt Reiley
       </footer>
     </div>
   );

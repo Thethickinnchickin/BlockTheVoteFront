@@ -33,7 +33,7 @@ export default function about() {
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi_NFT, signer);
       // call the presaleMint from the contract, only whitelisted addresses would be able to mint
       const tx = await nftContract.presaleMint({
-        // value signifies the cost of one crypto dev which is "0.01" eth.
+        // value signifies the cost of one voting pass which is "0.01" eth.
         // We are parsing `0.01` string to ether using the utils library from ethers.js
         value: utils.parseEther("0.01"),
       });
@@ -41,7 +41,7 @@ export default function about() {
       // wait for the transaction to get mined
       await tx.wait();
       setLoading(false);
-      window.alert("You successfully minted a Crypto Dev!");
+      window.alert("You successfully minted a voting pass!");
     } catch (err) {
       console.error(err);
     }
@@ -57,9 +57,9 @@ export default function about() {
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi_NFT, signer);
-      // call the mint from the contract to mint the Crypto Dev
+      // call the mint from the contract to mint the Voting Pass
       const tx = await nftContract.mint({
-        // value signifies the cost of one crypto dev which is "0.01" eth.
+        // value signifies the cost of one Voting Pass which is "0.01" eth.
         // We are parsing `0.01` string to ether using the utils library from ethers.js
         value: utils.parseEther("0.01"),
       });
@@ -67,7 +67,7 @@ export default function about() {
       // wait for the transaction to get mined
       await tx.wait();
       setLoading(false);
-      window.alert("You successfully minted a Crypto Dev!");
+      window.alert("You successfully minted a Voting!");
     } catch (err) {
       console.error(err);
     }
@@ -368,7 +368,7 @@ export default function about() {
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
+        Made with &#10084; by Matt Reiley
       </footer>
     </div>
   );

@@ -117,7 +117,7 @@ export const abi = [
   }
 ];
 
-export const NFT_CONTRACT_ADDRESS = "0x950f07D0F2717a8cA3749F8aC8BF0873BB754027"
+export const NFT_CONTRACT_ADDRESS = "0x65D445eBd8416d6f7Bf2ddEDD92207c608a43F38"
 export const abi_NFT = [
   {
     "inputs": [
@@ -715,7 +715,7 @@ export const abi_NFT = [
   }
 ];
 
-export const DAO_CONTRACT_ADDRESS = "0xAfAb01224Ea9e2891133dbFF6FD9291A2334eC2b";
+export const DAO_CONTRACT_ADDRESS = "0x8eBfEAE697b847cf215000A25638a8c8a46f6906";
 
 export const dao_abi = [
   {
