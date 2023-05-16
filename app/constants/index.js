@@ -117,6 +117,7 @@ export const abi = [
   }
 ];
 
+export const NFT_CONTRACT_ADDRESS = "0x950f07D0F2717a8cA3749F8aC8BF0873BB754027"
 export const abi_NFT = [
   {
     "inputs": [
@@ -309,6 +310,19 @@ export const abi_NFT = [
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSenderBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -526,6 +540,13 @@ export const abi_NFT = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "startPresale",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes4",
@@ -693,4 +714,179 @@ export const abi_NFT = [
     "type": "receive"
   }
 ];
-export const NFT_CONTRACT_ADDRESS = "0xF6744F565035Faf7a08E5684A336Bd110efdb3EC"
+
+export const DAO_CONTRACT_ADDRESS = "0xAfAb01224Ea9e2891133dbFF6FD9291A2334eC2b";
+
+export const dao_abi = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_votersNFT",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "votingProposal",
+        "type": "string"
+      }
+    ],
+    "name": "createProposal",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "executeProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "numProposals",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "proposals",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "votingProposal",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "yayVotes",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nayVotes",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "votePassed",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "voteFinalized",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "proposalIndex",
+        "type": "uint256"
+      },
+      {
+        "internalType": "enum VotersDAO.Vote",
+        "name": "vote",
+        "type": "uint8"
+      }
+    ],
+    "name": "voteOnProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
+

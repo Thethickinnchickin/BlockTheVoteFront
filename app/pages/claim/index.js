@@ -30,7 +30,7 @@ export default function about() {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
+      const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi_NFT, signer);
       // call the presaleMint from the contract, only whitelisted addresses would be able to mint
       const tx = await nftContract.presaleMint({
         // value signifies the cost of one crypto dev which is "0.01" eth.
@@ -146,7 +146,7 @@ export default function about() {
       const provider = await getProviderOrSigner();
       // We connect to the Contract using a Provider, so we will only
       // have read-only access to the Contract
-      const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, provider);
+      const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi_NFT, provider);
       // call the presaleEnded from the contract
       const _presaleEnded = await nftContract.presaleEnded();
       // _presaleEnded is a Big Number, so we are using the lt(less than function) instead of `<`
@@ -325,8 +325,7 @@ export default function about() {
       return (
         <div>
           <div className={styles.description}>
-            Presale has started!!! If your address is whitelisted, Mint a Crypto
-            Dev 🥳
+            Presale has started!!! If your address is on the voters list you can mint a token 🥳
           </div>
           <button className={styles.button} onClick={presaleMint}>
             Presale Mint 🚀
@@ -348,16 +347,15 @@ export default function about() {
   return (
     <div>
       <Head>
-        <title>Crypto Devs</title>
-        <meta name="description" content="Whitelist-Dapp" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>NFT Claim</title>
+        <meta name="description" content="NFT Claim" />
+        <link rel="icon" href="/vote-nav.svg" />
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
+          <h1 className={styles.title}>Welcome to Block The Vote NFT claim</h1>
           <div className={styles.description}>
-            ISOWNER {isOwner}
-            It&#39;s an NFT collection for developers in Crypto.
+            It&#39;s an NFT collection to be apart of exclusive voting.
           </div>
           <div className={styles.description}>
             {tokenIdsMinted}/20 have been minted
@@ -365,7 +363,7 @@ export default function about() {
           {renderButton()}
         </div>
         <div>
-          <img className={styles.image} src="./cryptodevs/0.svg" />
+          <img className={styles.image} src="./vote-nav.svg" />
         </div>
       </div>
 

@@ -4,7 +4,6 @@ import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
 import { abi, VOTERSNFT_CONTRACT_ADDRESS } from "../constants";
-import Navbar from './components/NavBar';
 
 export default function Home() {
   // walletConnected keep track of whether the user's wallet is connected or not
@@ -192,7 +191,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Rock The Vote</title>
+        <title>Block The Vote</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/vote.svg" />
       </Head>
@@ -204,12 +203,12 @@ export default function Home() {
             It&#39;s an NFT for group voting
           </div>
           <div className={styles.description}>
-            {numberOfVoters} have already joined the Rock the Vote
+            {numberOfVoters} have already joined the Block the Vote
           </div>
           {renderButton()}
         </div>
         <div>
-          <img className={styles.image} src="./vote.svg" />
+          <img className={styles.image} src="./vote-nav.svg" />
         </div>
       </div>
 
